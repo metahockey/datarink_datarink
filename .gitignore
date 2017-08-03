@@ -1,0 +1,9 @@
+node_modules
+*.scssc
+*.map
+/*.env
+npm-debug.log
+.DS_Store
+public/build.js
+public/build.css
+.vscode/launch.json

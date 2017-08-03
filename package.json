@@ -1,0 +1,50 @@
+{
+  "name": "datarink",
+  "description": "Web app for displaying hockey data",
+  "author": "datarink",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevkan/datarink.git"
+  },
+  "license": "ISC",
+  "scripts": {
+    "watchify": "watchify -vd -p browserify-hmr -e ./vue-src/app.js -o ./public/build.js",
+    "serve": "http-server ./public -o -s -c 1 -a localhost -p 5000",
+    "dev": "npm-run-all --parallel watchify serve",
+    "build": "NODE_ENV=production browserify -g envify -e ./vue-src/app.js | uglifyjs -c > ./public/build.js",
+    "postinstall": "npm run build",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "apicache": "^0.8.1",
+    "async": "^2.1.4",
+    "browserify": "^13.3.0",
+    "compression": "^1.6.2",
+    "envify": "^4.0.0",
+    "express": "^4.14.0",
+    "lodash": "^4.17.4",
+    "node-sass": "^4.3.0",
+    "pg": "^6.1.0",
+    "request": "^2.79.0",
+    "throng": "^4.0.0",
+    "uglify-js": "^2.7.5",
+    "vue": "^2.1.8",
+    "vue-router": "^2.0.3",
+    "vueify": "^9.4.0"
+  },
+  "devDependencies": {
+    "browserify-hmr": "^0.3.5",
+    "http-server": "^0.9.0",
+    "npm-run-all": "^3.1.2",
+    "watchify": "^3.7.0"
+  },
+  "browser": {
+    "vue": "vue/dist/vue.common"
+  },
+  "browserify": {
+    "transform": [
+      "vueify"
+    ]
+  }
+}

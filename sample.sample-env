@@ -1,0 +1,9 @@
+# Populate this file and rename it to .env
+# These are only used when running the application locally via heroku local.
+# When deployed to Heroku, these config vars are  defined in Heroku's application settings tab.
+
+# Database URL from Heroku
+HEROKU_POSTGRESQL_COPPER_URL = ""
+
+# Concurrency settings
+process.env.WEB_CONCURRENCY = 1
